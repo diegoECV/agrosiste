@@ -1,0 +1,264 @@
+<div class="settings">
+  <!-- Header -->
+  <div class="settings-header">
+    <h1>Configuración</h1>
+    <p class="settings-subtitle">Administra las preferencias generales del sistema</p>
+  </div>
+
+  <!-- Settings Grid -->
+  <div class="settings-grid">
+
+    <!-- Profile Section -->
+    <div class="settings-card">
+      <div class="card-header">
+        <div class="card-icon primary">
+          <ion-icon name="person-outline"></ion-icon>
+        </div>
+        <h2>Perfil de Usuario</h2>
+      </div>
+      <div class="card-body">
+        <div class="profile-avatar-section">
+          <div class="avatar-placeholder">
+            <ion-icon name="camera-outline"></ion-icon>
+          </div>
+          <button class="btn-outline-sm">Cambiar Foto</button>
+        </div>
+        <div class="form-group">
+          <label>Nombre Completo</label>
+          <input type="text" placeholder="Ingrese su nombre" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>Correo Electrónico</label>
+          <input type="email" placeholder="correo@empresa.com" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="tel" placeholder="+502 0000-0000" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>Cargo</label>
+          <input type="text" placeholder="Ej: Gerente de Ventas" class="form-input" />
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-primary">Guardar Cambios</button>
+      </div>
+    </div>
+
+    <!-- Company Section -->
+    <div class="settings-card">
+      <div class="card-header">
+        <div class="card-icon success">
+          <ion-icon name="business-outline"></ion-icon>
+        </div>
+        <h2>Información de Empresa</h2>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label>Nombre de la Empresa</label>
+          <input type="text" placeholder="AgroSistema S.A." class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>NIT / Registro Fiscal</label>
+          <input type="text" placeholder="000000-0" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>Dirección</label>
+          <input type="text" placeholder="Dirección de la empresa" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>País</label>
+          <select class="form-input">
+            <option value="">Seleccionar país</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Moneda Principal</label>
+          <select class="form-input">
+            <option value="">Seleccionar moneda</option>
+          </select>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-primary">Guardar Cambios</button>
+      </div>
+    </div>
+
+    <!-- Appearance -->
+    <div class="settings-card">
+      <div class="card-header">
+        <div class="card-icon warning">
+          <ion-icon name="color-palette-outline"></ion-icon>
+        </div>
+        <h2>Apariencia</h2>
+      </div>
+      <div class="card-body">
+        <div class="setting-row">
+          <div class="setting-info">
+            <h3>Tema Oscuro</h3>
+            <p>Cambia la apariencia visual del sistema</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" [checked]="theme.isDark()" (change)="theme.toggle()" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <div class="setting-info">
+            <h3>Barra Lateral Compacta</h3>
+            <p>Reduce el ancho del menú lateral</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <div class="setting-info">
+            <h3>Animaciones</h3>
+            <p>Activa o desactiva las animaciones del sistema</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" checked />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <div class="setting-info">
+            <h3>Idioma</h3>
+            <p>Idioma de la interfaz</p>
+          </div>
+          <select class="form-input compact">
+            <option>Español</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notifications -->
+    <div class="settings-card">
+      <div class="card-header">
+        <div class="card-icon danger">
+          <ion-icon name="notifications-outline"></ion-icon>
+        </div>
+        <h2>Notificaciones</h2>
+      </div>
+      <div class="card-body">
+        <div class="setting-row">
+          <div class="setting-info">
+            <h3>Notificaciones por Email</h3>
+            <p>Recibe alertas importantes en tu correo</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" checked />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <div class="setting-info">
+            <h3>Notificaciones Push</h3>
+            <p>Alertas en tiempo real en el navegador</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" checked />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <div class="setting-info">
+            <h3>Alertas de Stock Bajo</h3>
+            <p>Notificar cuando un producto tenga stock bajo</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" checked />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <div class="setting-info">
+            <h3>Resumen Diario</h3>
+            <p>Recibe un resumen de actividad cada día</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Security -->
+    <div class="settings-card">
+      <div class="card-header">
+        <div class="card-icon primary">
+          <ion-icon name="shield-checkmark-outline"></ion-icon>
+        </div>
+        <h2>Seguridad</h2>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label>Contraseña Actual</label>
+          <input type="password" placeholder="••••••••" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>Nueva Contraseña</label>
+          <input type="password" placeholder="Mínimo 8 caracteres" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>Confirmar Contraseña</label>
+          <input type="password" placeholder="Repita la contraseña" class="form-input" />
+        </div>
+        <div class="setting-row" style="margin-top: 0.6rem;">
+          <div class="setting-info">
+            <h3>Autenticación de Dos Factores</h3>
+            <p>Mayor seguridad al iniciar sesión</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-primary">Actualizar Contraseña</button>
+      </div>
+    </div>
+
+    <!-- Danger Zone -->
+    <div class="settings-card danger-zone">
+      <div class="card-header">
+        <div class="card-icon danger">
+          <ion-icon name="warning-outline"></ion-icon>
+        </div>
+        <h2>Zona de Peligro</h2>
+      </div>
+      <div class="card-body">
+        <div class="setting-row">
+          <div class="setting-info">
+            <h3>Exportar Datos</h3>
+            <p>Descarga una copia completa de todos los datos</p>
+          </div>
+          <button class="btn-outline-sm">
+            <ion-icon name="download-outline"></ion-icon>
+            Exportar
+          </button>
+        </div>
+        <div class="setting-row">
+          <div class="setting-info">
+            <h3>Cerrar Sesión en Todos los Dispositivos</h3>
+            <p>Finaliza todas las sesiones activas</p>
+          </div>
+          <button class="btn-outline-sm warning">Cerrar Sesiones</button>
+        </div>
+        <div class="setting-row">
+          <div class="setting-info">
+            <h3>Eliminar Cuenta</h3>
+            <p>Esta acción es permanente y no se puede deshacer</p>
+          </div>
+          <button class="btn-outline-sm danger">Eliminar</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

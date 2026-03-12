@@ -1,0 +1,54 @@
+<aside class="sidebar">
+  <div class="logo">
+    <ion-icon name="leaf-outline"></ion-icon>
+    <h2>AGRO<span>SIS</span></h2>
+  </div>
+
+  <nav class="menu">
+    <a routerLink="/dashboard" routerLinkActive="active" class="menu-item" (click)="onLinkClick()">
+      <ion-icon name="grid-outline"></ion-icon>
+      <span>Dashboard</span>
+    </a>
+    <a routerLink="/clientes" routerLinkActive="active" class="menu-item" (click)="onLinkClick()">
+      <ion-icon name="people-outline"></ion-icon>
+      <span>Clientes</span>
+    </a>
+    <a routerLink="/pedidos" routerLinkActive="active" class="menu-item" (click)="onLinkClick()">
+      <ion-icon name="cart-outline"></ion-icon>
+      <span>Pedidos</span>
+    </a>
+    <a routerLink="/analitica" routerLinkActive="active" class="menu-item" (click)="onLinkClick()">
+      <ion-icon name="analytics-outline"></ion-icon>
+      <span>Analítica</span>
+    </a>
+    <a routerLink="/mensajes" routerLinkActive="active" class="menu-item" (click)="onLinkClick()">
+      <ion-icon name="mail-outline"></ion-icon>
+      <span>Mensajes</span>
+    </a>
+    <a routerLink="/productos" routerLinkActive="active" class="menu-item" (click)="onLinkClick()">
+      <ion-icon name="cube-outline"></ion-icon>
+      <span>Productos</span>
+    </a>
+    <a routerLink="/produccion" routerLinkActive="active" class="menu-item" (click)="onLinkClick()">
+      <ion-icon name="pulse-outline"></ion-icon>
+      <span>Producción</span>
+    </a>
+    <a routerLink="/reportes" routerLinkActive="active" class="menu-item" (click)="onLinkClick()">
+      <ion-icon name="document-text-outline"></ion-icon>
+      <span>Reportes</span>
+    </a>
+    <a routerLink="/configuracion" routerLinkActive="active" class="menu-item" (click)="onLinkClick()">
+      <ion-icon name="settings-outline"></ion-icon>
+      <span>Configuración</span>
+    </a>
+    <a routerLink="/agregar-producto" class="menu-item" (click)="onLinkClick()">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <span>Agregar Producto</span>
+    </a>
+  </nav>
+
+  <a class="menu-item logout">
+    <ion-icon name="log-out-outline"></ion-icon>
+    <span>Cerrar Sesión</span>
+  </a>
+</aside>

@@ -1,0 +1,155 @@
+<div class="analytics">
+  <!-- Header -->
+  <div class="analytics-header">
+    <h1>Analítica</h1>
+    <div class="header-actions">
+      <div class="period-selector">
+        <button class="period-btn active">Hoy</button>
+        <button class="period-btn">Semana</button>
+        <button class="period-btn">Mes</button>
+        <button class="period-btn">Año</button>
+      </div>
+      <button class="btn-export">
+        <ion-icon name="download-outline"></ion-icon>
+        Exportar
+      </button>
+    </div>
+  </div>
+
+  <!-- Revenue Cards -->
+  <div class="revenue-row">
+    <div class="revenue-card">
+      <div class="revenue-icon primary">
+        <ion-icon name="wallet-outline"></ion-icon>
+      </div>
+      <div class="revenue-info">
+        <h3>Ingresos Totales</h3>
+        <h2>$--,---</h2>
+        <div class="revenue-change positive">
+          <ion-icon name="trending-up-outline"></ion-icon>
+          <span>--% vs periodo anterior</span>
+        </div>
+      </div>
+    </div>
+    <div class="revenue-card">
+      <div class="revenue-icon danger">
+        <ion-icon name="card-outline"></ion-icon>
+      </div>
+      <div class="revenue-info">
+        <h3>Gastos Totales</h3>
+        <h2>$--,---</h2>
+        <div class="revenue-change negative">
+          <ion-icon name="trending-down-outline"></ion-icon>
+          <span>--% vs periodo anterior</span>
+        </div>
+      </div>
+    </div>
+    <div class="revenue-card">
+      <div class="revenue-icon success">
+        <ion-icon name="cash-outline"></ion-icon>
+      </div>
+      <div class="revenue-info">
+        <h3>Ganancia Neta</h3>
+        <h2>$--,---</h2>
+        <div class="revenue-change positive">
+          <ion-icon name="trending-up-outline"></ion-icon>
+          <span>--% vs periodo anterior</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts Row -->
+  <div class="charts-row">
+    <div class="chart-card chart-large">
+      <div class="chart-header">
+        <h2>Resumen de Ventas</h2>
+        <div class="chart-legend">
+          <span class="legend-item"><i class="dot primary"></i> Ingresos</span>
+          <span class="legend-item"><i class="dot danger"></i> Gastos</span>
+        </div>
+      </div>
+      <div class="chart-placeholder">
+        <div class="bar-chart">
+          @for (m of months; track m) {
+            <div class="bar-group">
+              <div class="bar primary" [style.height.%]="0"></div>
+              <div class="bar danger" [style.height.%]="0"></div>
+              <span class="bar-label">{{ m }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-card chart-small">
+      <div class="chart-header">
+        <h2>Distribución de Productos</h2>
+      </div>
+      <div class="chart-placeholder donut-area">
+        <svg viewBox="0 0 36 36" class="donut-lg">
+          <circle cx="18" cy="18" r="14" fill="none" stroke-width="4" class="donut-bg"/>
+          <circle cx="18" cy="18" r="14" fill="none" stroke-width="4" class="donut-seg seg-1"
+            stroke-dasharray="25 75" stroke-dashoffset="0" transform="rotate(-90 18 18)"/>
+          <circle cx="18" cy="18" r="14" fill="none" stroke-width="4" class="donut-seg seg-2"
+            stroke-dasharray="20 80" stroke-dashoffset="-25" transform="rotate(-90 18 18)"/>
+          <circle cx="18" cy="18" r="14" fill="none" stroke-width="4" class="donut-seg seg-3"
+            stroke-dasharray="15 85" stroke-dashoffset="-45" transform="rotate(-90 18 18)"/>
+          <circle cx="18" cy="18" r="14" fill="none" stroke-width="4" class="donut-seg seg-4"
+            stroke-dasharray="40 60" stroke-dashoffset="-60" transform="rotate(-90 18 18)"/>
+        </svg>
+        <div class="donut-categories">
+          <span class="cat-item"><i class="dot cat-1"></i> Categoría A: --</span>
+          <span class="cat-item"><i class="dot cat-2"></i> Categoría B: --</span>
+          <span class="cat-item"><i class="dot cat-3"></i> Categoría C: --</span>
+          <span class="cat-item"><i class="dot cat-4"></i> Categoría D: --</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Row -->
+  <div class="bottom-row">
+    <!-- Top Products -->
+    <div class="panel-card">
+      <div class="panel-header">
+        <h2>Productos Más Vendidos</h2>
+        <a class="see-all">Ver todo</a>
+      </div>
+      <div class="product-list">
+        <div class="empty-content">
+          <ion-icon name="cube-outline"></ion-icon>
+          <p>Sin datos de productos</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Customers -->
+    <div class="panel-card">
+      <div class="panel-header">
+        <h2>Mejores Clientes</h2>
+        <a class="see-all">Ver todo</a>
+      </div>
+      <div class="customer-list">
+        <div class="empty-content">
+          <ion-icon name="people-outline"></ion-icon>
+          <p>Sin datos de clientes</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Transactions -->
+    <div class="panel-card">
+      <div class="panel-header">
+        <h2>Transacciones Recientes</h2>
+        <a class="see-all">Ver todo</a>
+      </div>
+      <div class="transaction-list">
+        <div class="empty-content">
+          <ion-icon name="swap-horizontal-outline"></ion-icon>
+          <p>Sin transacciones recientes</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

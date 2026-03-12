@@ -1,0 +1,100 @@
+/* ===== Global Reset & Theme System ===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* ===== Light Theme (default) ===== */
+:root {
+  --bg-primary: #f6f6f9;
+  --bg-secondary: #ffffff;
+  --bg-sidebar: #ffffff;
+  --text-primary: #1a1a2e;
+  --text-secondary: #7d8da1;
+  --text-muted: #b0b7c3;
+  --accent-primary: #7380ec;
+  --accent-primary-light: #f0edff;
+  --accent-danger: #ff7782;
+  --accent-success: #41f1b6;
+  --accent-warning: #ffbb55;
+  --accent-info: #7380ec;
+  --border-color: #edeffd;
+  --shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+  --shadow-sm: 0 0.5rem 1.5rem rgba(132, 139, 200, 0.12);
+  --card-radius: 1.6rem;
+  --border-radius: 0.8rem;
+  --card-padding: 1.8rem;
+  --padding: 1.2rem;
+}
+
+/* ===== Dark Theme ===== */
+body.theme-dark {
+  --bg-primary: #181a1e;
+  --bg-secondary: #202528;
+  --bg-sidebar: #202528;
+  --text-primary: #e0e0e0;
+  --text-secondary: #aaaaaa;
+  --text-muted: #6c6c6c;
+  --accent-primary: #7380ec;
+  --accent-primary-light: #2a2d4a;
+  --accent-danger: #ff7782;
+  --accent-success: #41f1b6;
+  --accent-warning: #ffbb55;
+  --accent-info: #7380ec;
+  --border-color: #2d3035;
+  --shadow: 0 2rem 3rem rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 3px;
+}
+
+/* ===== Global Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}

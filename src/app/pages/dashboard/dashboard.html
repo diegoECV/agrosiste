@@ -1,0 +1,42 @@
+<div class="dashboard">
+  <div class="dashboard-main">
+    <div class="dashboard-header">
+      <h1>Dashboard</h1>
+      <div class="date-display">
+        <ion-icon name="calendar-outline"></ion-icon>
+        <span>-- / -- / ----</span>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <app-stats-card
+        title="Ventas Totales"
+        value="$--,---"
+        icon="bag-handle-outline"
+        color="primary"
+        [progress]="0"
+      />
+      <app-stats-card
+        title="Gastos Totales"
+        value="$--,---"
+        icon="card-outline"
+        color="danger"
+        [progress]="0"
+      />
+      <app-stats-card
+        title="Ingresos Totales"
+        value="$--,---"
+        icon="trending-up-outline"
+        color="success"
+        [progress]="0"
+      />
+    </div>
+
+    <app-orders-table />
+  </div>
+
+  <div class="dashboard-right">
+    <app-activity-panel />
+    <app-analytics-panel />
+  </div>
+</div>

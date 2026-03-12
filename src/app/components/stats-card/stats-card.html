@@ -1,0 +1,20 @@
+<div [class]="'stats-card color-' + color()">
+  <div class="stats-info">
+    <div class="stats-icon">
+      <ion-icon [name]="icon()"></ion-icon>
+    </div>
+    <h3>{{ title() }}</h3>
+    <h1>{{ value() }}</h1>
+    <small>{{ subtitle() }}</small>
+  </div>
+  <div class="stats-progress">
+    <svg viewBox="0 0 36 36" class="donut-chart">
+      <circle class="donut-bg" cx="18" cy="18" r="14" fill="none" stroke-width="3.5"/>
+      <circle class="donut-fill" cx="18" cy="18" r="14" fill="none" stroke-width="3.5"
+        [attr.stroke-dasharray]="(progress() * 87.96 / 100) + ' ' + (87.96 - progress() * 87.96 / 100)"
+        stroke-dashoffset="22"
+        transform="rotate(-90 18 18)"/>
+      <text x="18" y="19.5" text-anchor="middle" class="donut-text">{{ progress() }}%</text>
+    </svg>
+  </div>
+</div>

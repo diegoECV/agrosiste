@@ -1,0 +1,332 @@
+<div class="add-product">
+  <!-- Header -->
+  <div class="page-header">
+    <div class="header-left">
+      <a routerLink="/productos" class="btn-back">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </a>
+      <div>
+        <h1>Agregar Producto</h1>
+        <p class="header-subtitle">Registra un nuevo producto agrícola al catálogo</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="btn-draft">
+        <ion-icon name="save-outline"></ion-icon>
+        Guardar Borrador
+      </button>
+      <button class="btn-publish">
+        <ion-icon name="checkmark-outline"></ion-icon>
+        Publicar Producto
+      </button>
+    </div>
+  </div>
+
+  <!-- Product Type Selector -->
+  <div class="type-selector">
+    <h2>Tipo de Producto</h2>
+    <div class="type-cards">
+      @for (type of productTypes; track type.id) {
+        <button
+          class="type-card"
+          [class.active]="selectedType() === type.id"
+          [style.--type-color]="type.color"
+          (click)="selectType(type.id)">
+          <div class="type-icon" [style.background]="type.color">
+            <ion-icon [name]="type.icon"></ion-icon>
+          </div>
+          <span>{{ type.name }}</span>
+          @if (selectedType() === type.id) {
+            <ion-icon name="checkmark-circle" class="type-check"></ion-icon>
+          }
+        </button>
+      }
+    </div>
+  </div>
+
+  <!-- Form Grid -->
+  <div class="form-grid">
+    <!-- General Info -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <ion-icon name="information-circle-outline"></ion-icon>
+        <h2>Información General</h2>
+      </div>
+      <div class="form-card-body">
+        <div class="form-group">
+          <label>Nombre del Producto <span class="required">*</span></label>
+          <input type="text" class="form-input" placeholder="Ej: Arándano Biloxi Premium" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Variedad <span class="required">*</span></label>
+            <select class="form-input">
+              <option value="">Seleccionar variedad</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Calibre</label>
+            <select class="form-input">
+              <option value="">Seleccionar calibre</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Origen / Fundo <span class="required">*</span></label>
+            <input type="text" class="form-input" placeholder="Ej: Fundo La Esperanza" />
+          </div>
+          <div class="form-group">
+            <label>Región</label>
+            <select class="form-input">
+              <option value="">Seleccionar región</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Descripción</label>
+          <textarea class="form-input textarea" rows="3" placeholder="Descripción del producto, características especiales..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Packaging & Specs -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <ion-icon name="cube-outline"></ion-icon>
+        <h2>Empaque y Especificaciones</h2>
+      </div>
+      <div class="form-card-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Tipo de Empaque <span class="required">*</span></label>
+            <select class="form-input">
+              <option value="">Seleccionar empaque</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Peso por Unidad (kg)</label>
+            <input type="number" class="form-input" placeholder="0.00" step="0.01" min="0" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Unidades por Caja</label>
+            <input type="number" class="form-input" placeholder="0" min="0" />
+          </div>
+          <div class="form-group">
+            <label>Peso por Caja (kg)</label>
+            <input type="number" class="form-input" placeholder="0.00" step="0.01" min="0" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Temperatura de Almacenamiento (°C)</label>
+            <div class="input-range">
+              <input type="number" class="form-input small" placeholder="Mín" />
+              <span class="range-separator">a</span>
+              <input type="number" class="form-input small" placeholder="Máx" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Vida Útil (días)</label>
+            <input type="number" class="form-input" placeholder="0" min="0" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Condiciones de Transporte</label>
+          <input type="text" class="form-input" placeholder="Ej: Cadena de frío, contenedor refrigerado" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <ion-icon name="pricetag-outline"></ion-icon>
+        <h2>Precios y Costos</h2>
+      </div>
+      <div class="form-card-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Precio FOB (USD/kg) <span class="required">*</span></label>
+            <div class="input-with-prefix">
+              <span class="input-prefix">$</span>
+              <input type="number" class="form-input with-prefix" placeholder="0.00" step="0.01" min="0" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Precio CIF (USD/kg)</label>
+            <div class="input-with-prefix">
+              <span class="input-prefix">$</span>
+              <input type="number" class="form-input with-prefix" placeholder="0.00" step="0.01" min="0" />
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Costo de Producción (USD/kg)</label>
+            <div class="input-with-prefix">
+              <span class="input-prefix">$</span>
+              <input type="number" class="form-input with-prefix" placeholder="0.00" step="0.01" min="0" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Moneda</label>
+            <select class="form-input">
+              <option>USD</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Notas de Precio</label>
+          <input type="text" class="form-input" placeholder="Ej: Precio sujeto a temporada" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Stock & Season -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <ion-icon name="calendar-outline"></ion-icon>
+        <h2>Stock y Temporada</h2>
+      </div>
+      <div class="form-card-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Stock Inicial (kg) <span class="required">*</span></label>
+            <input type="number" class="form-input" placeholder="0" min="0" />
+          </div>
+          <div class="form-group">
+            <label>Stock Mínimo de Alerta (kg)</label>
+            <input type="number" class="form-input" placeholder="0" min="0" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Inicio de Temporada</label>
+            <input type="date" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Fin de Temporada</label>
+            <input type="date" class="form-input" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Lote</label>
+            <input type="text" class="form-input" placeholder="Ej: LT-2026-001" />
+          </div>
+          <div class="form-group">
+            <label>Fecha de Cosecha</label>
+            <input type="date" class="form-input" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <ion-icon name="shield-checkmark-outline"></ion-icon>
+        <h2>Certificaciones y Calidad</h2>
+      </div>
+      <div class="form-card-body">
+        <div class="cert-grid">
+          <label class="cert-checkbox">
+            <input type="checkbox" />
+            <span class="cert-mark"></span>
+            <div class="cert-info">
+              <strong>GlobalG.A.P.</strong>
+              <small>Buenas prácticas agrícolas</small>
+            </div>
+          </label>
+          <label class="cert-checkbox">
+            <input type="checkbox" />
+            <span class="cert-mark"></span>
+            <div class="cert-info">
+              <strong>HACCP</strong>
+              <small>Análisis de peligros y puntos críticos</small>
+            </div>
+          </label>
+          <label class="cert-checkbox">
+            <input type="checkbox" />
+            <span class="cert-mark"></span>
+            <div class="cert-info">
+              <strong>Orgánico</strong>
+              <small>Certificación orgánica</small>
+            </div>
+          </label>
+          <label class="cert-checkbox">
+            <input type="checkbox" />
+            <span class="cert-mark"></span>
+            <div class="cert-info">
+              <strong>Fair Trade</strong>
+              <small>Comercio justo</small>
+            </div>
+          </label>
+          <label class="cert-checkbox">
+            <input type="checkbox" />
+            <span class="cert-mark"></span>
+            <div class="cert-info">
+              <strong>BRC</strong>
+              <small>Seguridad alimentaria</small>
+            </div>
+          </label>
+          <label class="cert-checkbox">
+            <input type="checkbox" />
+            <span class="cert-mark"></span>
+            <div class="cert-info">
+              <strong>SENASA</strong>
+              <small>Registro fitosanitario</small>
+            </div>
+          </label>
+        </div>
+        <div class="form-group" style="margin-top: 1rem;">
+          <label>Grado de Calidad</label>
+          <select class="form-input">
+            <option value="">Seleccionar grado</option>
+            <option>Calidad A - Premium</option>
+            <option>Calidad B - Estándar</option>
+            <option>Calidad C - Industrial</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Upload -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <ion-icon name="image-outline"></ion-icon>
+        <h2>Imágenes del Producto</h2>
+      </div>
+      <div class="form-card-body">
+        <div class="upload-zone">
+          <ion-icon name="cloud-upload-outline"></ion-icon>
+          <h3>Arrastra imágenes aquí</h3>
+          <p>o haz clic para seleccionar archivos</p>
+          <small>PNG, JPG, WEBP · Máximo 5MB por imagen</small>
+          <button class="btn-upload">Seleccionar Archivos</button>
+        </div>
+        <div class="upload-thumbnails">
+          <!-- Thumbnails aparecerán aquí -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Actions -->
+  <div class="form-footer">
+    <a routerLink="/productos" class="btn-cancel">Cancelar</a>
+    <div class="footer-right">
+      <button class="btn-draft">
+        <ion-icon name="save-outline"></ion-icon>
+        Guardar Borrador
+      </button>
+      <button class="btn-publish">
+        <ion-icon name="checkmark-outline"></ion-icon>
+        Publicar Producto
+      </button>
+    </div>
+  </div>
+</div>

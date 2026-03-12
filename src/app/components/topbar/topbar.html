@@ -1,0 +1,31 @@
+<header class="topbar">
+  <button class="hamburger-btn" (click)="menuToggle.emit()">
+    <ion-icon name="menu-outline"></ion-icon>
+  </button>
+
+  <div class="search-bar">
+    <ion-icon name="search-outline"></ion-icon>
+    <input type="text" placeholder="Buscar...">
+  </div>
+
+  <div class="topbar-right">
+    <button class="theme-toggle" (click)="theme.toggle()"
+      [attr.aria-label]="theme.isDark() ? 'Modo claro' : 'Modo oscuro'">
+      <ion-icon [name]="theme.isDark() ? 'sunny-outline' : 'moon-outline'"></ion-icon>
+    </button>
+
+    <button class="notification-btn">
+      <ion-icon name="notifications-outline"></ion-icon>
+    </button>
+
+    <div class="profile">
+      <div class="profile-info">
+        <span class="greeting">Hola, <strong>Usuario</strong></span>
+        <span class="role">Admin</span>
+      </div>
+      <div class="avatar">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+</header>

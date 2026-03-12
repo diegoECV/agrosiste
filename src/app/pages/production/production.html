@@ -1,0 +1,299 @@
+<div class="production">
+  <!-- Header -->
+  <div class="production-header">
+    <div class="header-left">
+      <h1>Producción</h1>
+      <p class="header-subtitle">Control de producción por cultivo y temporada</p>
+    </div>
+    <div class="header-actions">
+      <div class="period-selector">
+        @for (p of periods; track p.value) {
+          <button
+            class="period-btn"
+            [class.active]="selectedPeriod() === p.value"
+            (click)="selectPeriod(p.value)">
+            {{ p.label }}
+          </button>
+        }
+      </div>
+      <button class="btn-export">
+        <ion-icon name="download-outline"></ion-icon>
+        <span>Exportar</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Product Tabs -->
+  <div class="product-tabs">
+    <button
+      class="product-tab"
+      [class.active]="selectedProduct() === 'all'"
+      (click)="selectProduct('all')">
+      <ion-icon name="apps-outline"></ion-icon>
+      <span>Todos</span>
+    </button>
+    @for (prod of products; track prod.id) {
+      <button
+        class="product-tab"
+        [class.active]="selectedProduct() === prod.id"
+        [style.--tab-color]="prod.color"
+        (click)="selectProduct(prod.id)">
+        <ion-icon [name]="prod.icon"></ion-icon>
+        <span>{{ prod.name }}</span>
+        <small class="season-badge">{{ prod.season }}</small>
+      </button>
+    }
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="production-stats">
+    <div class="stat-card">
+      <div class="stat-icon arandano">
+        <ion-icon name="nutrition-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Arándano</h3>
+        <h2>-- kg</h2>
+        <span class="stat-season">Temporada: Ago – Nov</span>
+      </div>
+      <div class="stat-trend positive">
+        <ion-icon name="trending-up-outline"></ion-icon>
+        --%
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon palta">
+        <ion-icon name="leaf-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Palta</h3>
+        <h2>-- kg</h2>
+        <span class="stat-season">Temporada: Mar – Sep</span>
+      </div>
+      <div class="stat-trend positive">
+        <ion-icon name="trending-up-outline"></ion-icon>
+        --%
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon alcachofa">
+        <ion-icon name="flower-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Alcachofa</h3>
+        <h2>-- kg</h2>
+        <span class="stat-season">Temporada: May – Dic</span>
+      </div>
+      <div class="stat-trend negative">
+        <ion-icon name="trending-down-outline"></ion-icon>
+        --%
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon total">
+        <ion-icon name="bar-chart-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Total Producción</h3>
+        <h2>-- kg</h2>
+        <span class="stat-season">Periodo seleccionado</span>
+      </div>
+      <div class="stat-trend positive">
+        <ion-icon name="trending-up-outline"></ion-icon>
+        --%
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Grid -->
+  <div class="production-grid">
+    <!-- Production Chart -->
+    <div class="panel chart-panel">
+      <div class="panel-header">
+        <h2>Producción por Periodo</h2>
+        <div class="chart-legend">
+          <span class="legend-item arandano"><span class="legend-dot"></span> Arándano</span>
+          <span class="legend-item palta"><span class="legend-dot"></span> Palta</span>
+          <span class="legend-item alcachofa"><span class="legend-dot"></span> Alcachofa</span>
+        </div>
+      </div>
+      <div class="chart-area">
+        <div class="chart-bars">
+          @for (label of ['Lun','Mar','Mié','Jue','Vie','Sáb','Dom']; track label) {
+            <div class="chart-column">
+              <div class="stacked-bar">
+                <div class="bar-segment arandano" style="height: 0%"></div>
+                <div class="bar-segment palta" style="height: 0%"></div>
+                <div class="bar-segment alcachofa" style="height: 0%"></div>
+              </div>
+              <span class="bar-label">{{ label }}</span>
+            </div>
+          }
+        </div>
+        <div class="chart-empty-overlay">
+          <ion-icon name="bar-chart-outline"></ion-icon>
+          <p>Sin datos de producción</p>
+          <small>Los datos se cargarán desde el backend</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Season Calendar -->
+    <div class="panel calendar-panel">
+      <div class="panel-header">
+        <h2>Calendario de Temporadas</h2>
+      </div>
+      <div class="season-timeline">
+        <div class="timeline-months">
+          @for (m of ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']; track m) {
+            <span class="month-label">{{ m }}</span>
+          }
+        </div>
+        <div class="timeline-row">
+          <span class="crop-label arandano-text">Arándano</span>
+          <div class="timeline-bar">
+            <div class="season-bar arandano" style="left: 58.33%; width: 33.33%;" title="Ago – Nov"></div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <span class="crop-label palta-text">Palta</span>
+          <div class="timeline-bar">
+            <div class="season-bar palta" style="left: 16.66%; width: 58.33%;" title="Mar – Sep"></div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <span class="crop-label alcachofa-text">Alcachofa</span>
+          <div class="timeline-bar">
+            <div class="season-bar alcachofa" style="left: 33.33%; width: 66.66%;" title="May – Dic"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Section -->
+  <div class="production-bottom">
+    <!-- Daily Log Table -->
+    <div class="panel table-panel">
+      <div class="panel-header">
+        <h2>Registro de Producción</h2>
+        <button class="btn-add">
+          <ion-icon name="add-outline"></ion-icon>
+          Nuevo Registro
+        </button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Producto</th>
+            <th>Lote</th>
+            <th>Cantidad (kg)</th>
+            <th>Calidad</th>
+            <th>Responsable</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="empty-state">
+            <td colspan="8">
+              <div class="empty-content">
+                <ion-icon name="clipboard-outline"></ion-icon>
+                <h3>Sin registros de producción</h3>
+                <p>Agrega el primer registro para comenzar el seguimiento</p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Quality & Yield Summary -->
+    <div class="panel summary-panel">
+      <div class="panel-header">
+        <h2>Resumen de Rendimiento</h2>
+      </div>
+      <div class="yield-cards">
+        <div class="yield-card">
+          <div class="yield-icon arandano">
+            <ion-icon name="nutrition-outline"></ion-icon>
+          </div>
+          <div class="yield-info">
+            <h4>Arándano</h4>
+            <div class="yield-row">
+              <span>Rendimiento/ha</span>
+              <strong>-- kg</strong>
+            </div>
+            <div class="yield-row">
+              <span>Calidad A</span>
+              <strong>--%</strong>
+            </div>
+            <div class="yield-row">
+              <span>Merma</span>
+              <strong>--%</strong>
+            </div>
+            <div class="yield-progress">
+              <div class="progress-bar">
+                <div class="progress-fill arandano" style="width: 0%"></div>
+              </div>
+              <span>--% de meta</span>
+            </div>
+          </div>
+        </div>
+        <div class="yield-card">
+          <div class="yield-icon palta">
+            <ion-icon name="leaf-outline"></ion-icon>
+          </div>
+          <div class="yield-info">
+            <h4>Palta</h4>
+            <div class="yield-row">
+              <span>Rendimiento/ha</span>
+              <strong>-- kg</strong>
+            </div>
+            <div class="yield-row">
+              <span>Calidad A</span>
+              <strong>--%</strong>
+            </div>
+            <div class="yield-row">
+              <span>Merma</span>
+              <strong>--%</strong>
+            </div>
+            <div class="yield-progress">
+              <div class="progress-bar">
+                <div class="progress-fill palta" style="width: 0%"></div>
+              </div>
+              <span>--% de meta</span>
+            </div>
+          </div>
+        </div>
+        <div class="yield-card">
+          <div class="yield-icon alcachofa">
+            <ion-icon name="flower-outline"></ion-icon>
+          </div>
+          <div class="yield-info">
+            <h4>Alcachofa</h4>
+            <div class="yield-row">
+              <span>Rendimiento/ha</span>
+              <strong>-- kg</strong>
+            </div>
+            <div class="yield-row">
+              <span>Calidad A</span>
+              <strong>--%</strong>
+            </div>
+            <div class="yield-row">
+              <span>Merma</span>
+              <strong>--%</strong>
+            </div>
+            <div class="yield-progress">
+              <div class="progress-bar">
+                <div class="progress-fill alcachofa" style="width: 0%"></div>
+              </div>
+              <span>--% de meta</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

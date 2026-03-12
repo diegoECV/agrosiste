@@ -1,0 +1,113 @@
+<div class="orders">
+  <!-- Header -->
+  <div class="orders-header">
+    <h1>Pedidos</h1>
+    <button class="btn-add">
+      <ion-icon name="add-outline"></ion-icon>
+      <span>Nuevo Pedido</span>
+    </button>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="orders-stats">
+    <div class="stat-card">
+      <div class="stat-icon primary">
+        <ion-icon name="receipt-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Total Pedidos</h3>
+        <h2>--</h2>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon warning">
+        <ion-icon name="time-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Pendientes</h3>
+        <h2>--</h2>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon success">
+        <ion-icon name="checkmark-done-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Entregados</h3>
+        <h2>--</h2>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon danger">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Cancelados</h3>
+        <h2>--</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="orders-toolbar">
+    <div class="search-box">
+      <ion-icon name="search-outline"></ion-icon>
+      <input type="text" placeholder="Buscar pedido...">
+    </div>
+    <div class="toolbar-actions">
+      <div class="filter-group">
+        <button class="filter-btn active">Todos</button>
+        <button class="filter-btn">Pendientes</button>
+        <button class="filter-btn">En Proceso</button>
+        <button class="filter-btn">Entregados</button>
+        <button class="filter-btn">Cancelados</button>
+      </div>
+      <button class="btn-export">
+        <ion-icon name="download-outline"></ion-icon>
+        Exportar
+      </button>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="orders-table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>N° Pedido</th>
+          <th>Cliente</th>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Fecha</th>
+          <th>Pago</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="empty-state">
+          <td colspan="8">
+            <div class="empty-content">
+              <ion-icon name="cart-outline"></ion-icon>
+              <h3>Sin pedidos registrados</h3>
+              <p>Los pedidos aparecerán aquí una vez conectados al sistema</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="table-footer">
+      <span class="table-info">Mostrando 0 de 0 pedidos</span>
+      <div class="pagination">
+        <button class="page-btn" disabled>
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn" disabled>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

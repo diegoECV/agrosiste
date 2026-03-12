@@ -1,0 +1,240 @@
+<div class="products">
+  <!-- Header -->
+  <div class="products-header">
+    <div class="header-left">
+      <h1>Productos</h1>
+      <p class="header-subtitle">Catálogo de productos agrícolas de exportación</p>
+    </div>
+    <div class="header-actions">
+      <button class="btn-view" [class.active]="viewMode() === 'grid'" title="Vista de cuadrícula" (click)="setView('grid')">
+        <ion-icon name="grid-outline"></ion-icon>
+      </button>
+      <button class="btn-view" [class.active]="viewMode() === 'list'" title="Vista de lista" (click)="setView('list')">
+        <ion-icon name="list-outline"></ion-icon>
+      </button>
+      <button class="btn-add">
+        <ion-icon name="add-outline"></ion-icon>
+        <span>Nuevo Producto</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Product Category Cards -->
+  <div class="product-showcase">
+    <div class="showcase-card arandano">
+      <div class="showcase-bg">
+        <ion-icon name="nutrition-outline"></ion-icon>
+      </div>
+      <div class="showcase-content">
+        <div class="showcase-icon arandano">
+          <ion-icon name="nutrition-outline"></ion-icon>
+        </div>
+        <h3>Arándano</h3>
+        <div class="showcase-details">
+          <div class="showcase-row">
+            <span>Variedades</span>
+            <strong>--</strong>
+          </div>
+          <div class="showcase-row">
+            <span>Stock actual</span>
+            <strong>-- kg</strong>
+          </div>
+          <div class="showcase-row">
+            <span>Temporada</span>
+            <strong>Ago – Nov</strong>
+          </div>
+        </div>
+        <div class="showcase-status in-season">
+          <ion-icon name="ellipse"></ion-icon>
+          Sin datos
+        </div>
+      </div>
+    </div>
+    <div class="showcase-card palta">
+      <div class="showcase-bg">
+        <ion-icon name="leaf-outline"></ion-icon>
+      </div>
+      <div class="showcase-content">
+        <div class="showcase-icon palta">
+          <ion-icon name="leaf-outline"></ion-icon>
+        </div>
+        <h3>Palta</h3>
+        <div class="showcase-details">
+          <div class="showcase-row">
+            <span>Variedades</span>
+            <strong>--</strong>
+          </div>
+          <div class="showcase-row">
+            <span>Stock actual</span>
+            <strong>-- kg</strong>
+          </div>
+          <div class="showcase-row">
+            <span>Temporada</span>
+            <strong>Mar – Sep</strong>
+          </div>
+        </div>
+        <div class="showcase-status in-season">
+          <ion-icon name="ellipse"></ion-icon>
+          Sin datos
+        </div>
+      </div>
+    </div>
+    <div class="showcase-card alcachofa">
+      <div class="showcase-bg">
+        <ion-icon name="flower-outline"></ion-icon>
+      </div>
+      <div class="showcase-content">
+        <div class="showcase-icon alcachofa">
+          <ion-icon name="flower-outline"></ion-icon>
+        </div>
+        <h3>Alcachofa</h3>
+        <div class="showcase-details">
+          <div class="showcase-row">
+            <span>Variedades</span>
+            <strong>--</strong>
+          </div>
+          <div class="showcase-row">
+            <span>Stock actual</span>
+            <strong>-- kg</strong>
+          </div>
+          <div class="showcase-row">
+            <span>Temporada</span>
+            <strong>May – Dic</strong>
+          </div>
+        </div>
+        <div class="showcase-status in-season">
+          <ion-icon name="ellipse"></ion-icon>
+          Sin datos
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Row -->
+  <div class="products-stats">
+    <div class="stat-card">
+      <div class="stat-icon primary">
+        <ion-icon name="cube-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Total Variedades</h3>
+        <h2>--</h2>
+        <span class="stat-hint">En catálogo</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon success">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Disponible</h3>
+        <h2>-- kg</h2>
+        <span class="stat-hint">Stock total</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon warning">
+        <ion-icon name="airplane-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>En Tránsito</h3>
+        <h2>-- kg</h2>
+        <span class="stat-hint">Exportación activa</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon danger">
+        <ion-icon name="alert-circle-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Stock Bajo</h3>
+        <h2>--</h2>
+        <span class="stat-hint">Requiere atención</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Tabs + Toolbar -->
+  <div class="products-toolbar">
+    <div class="category-tabs">
+      @for (cat of categories; track cat.id) {
+        <button
+          class="cat-tab"
+          [class.active]="selectedCategory() === cat.id"
+          [style.--cat-color]="cat.color || 'var(--accent-primary)'"
+          (click)="selectCategory(cat.id)">
+          <ion-icon [name]="cat.icon"></ion-icon>
+          <span>{{ cat.label }}</span>
+        </button>
+      }
+    </div>
+    <div class="toolbar-right">
+      <div class="search-box">
+        <ion-icon name="search-outline"></ion-icon>
+        <input type="text" placeholder="Buscar variedad, calibre, lote...">
+      </div>
+      <select class="select-filter">
+        <option>Todos los calibres</option>
+      </select>
+      <select class="select-filter">
+        <option>Todos los empaques</option>
+      </select>
+      <button class="btn-export">
+        <ion-icon name="download-outline"></ion-icon>
+        Exportar
+      </button>
+    </div>
+  </div>
+
+  <!-- Products Table -->
+  <div class="products-table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Variedad</th>
+          <th>Calibre</th>
+          <th>Origen / Fundo</th>
+          <th>Empaque</th>
+          <th>Stock (kg)</th>
+          <th>Precio FOB</th>
+          <th>Certificación</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="empty-state">
+          <td colspan="10">
+            <div class="empty-content">
+              <div class="empty-icon-group">
+                <ion-icon name="nutrition-outline" class="empty-ico arandano"></ion-icon>
+                <ion-icon name="leaf-outline" class="empty-ico palta"></ion-icon>
+                <ion-icon name="flower-outline" class="empty-ico alcachofa"></ion-icon>
+              </div>
+              <h3>Sin productos registrados</h3>
+              <p>Registra arándanos, paltas o alcachofas para comenzar</p>
+              <button class="btn-empty-add">
+                <ion-icon name="add-outline"></ion-icon>
+                Agregar Producto
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="table-footer">
+      <span class="table-info">Mostrando 0 de 0 productos</span>
+      <div class="pagination">
+        <button class="page-btn" disabled>
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn" disabled>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

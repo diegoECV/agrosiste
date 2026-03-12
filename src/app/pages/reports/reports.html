@@ -1,0 +1,185 @@
+<div class="reports">
+  <!-- Header -->
+  <div class="reports-header">
+    <h1>Reportes</h1>
+    <div class="header-actions">
+      <div class="period-selector">
+        <button class="period-btn active">Hoy</button>
+        <button class="period-btn">Semana</button>
+        <button class="period-btn">Mes</button>
+        <button class="period-btn">Año</button>
+        <button class="period-btn">Personalizado</button>
+      </div>
+      <button class="btn-generate">
+        <ion-icon name="document-text-outline"></ion-icon>
+        <span>Generar Reporte</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="reports-stats">
+    <div class="stat-card">
+      <div class="stat-icon primary">
+        <ion-icon name="bar-chart-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Ventas del Periodo</h3>
+        <h2>$--,---</h2>
+        <span class="stat-change positive">
+          <ion-icon name="trending-up-outline"></ion-icon>
+          --% vs anterior
+        </span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon success">
+        <ion-icon name="cart-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Pedidos Completados</h3>
+        <h2>--</h2>
+        <span class="stat-change positive">
+          <ion-icon name="trending-up-outline"></ion-icon>
+          --% vs anterior
+        </span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon warning">
+        <ion-icon name="people-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Clientes Nuevos</h3>
+        <h2>--</h2>
+        <span class="stat-change negative">
+          <ion-icon name="trending-down-outline"></ion-icon>
+          --% vs anterior
+        </span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon danger">
+        <ion-icon name="return-down-back-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Devoluciones</h3>
+        <h2>--</h2>
+        <span class="stat-change negative">
+          <ion-icon name="trending-down-outline"></ion-icon>
+          --% vs anterior
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reports Grid -->
+  <div class="reports-grid">
+    <!-- Sales Chart -->
+    <div class="report-card wide">
+      <div class="report-card-header">
+        <h2>Reporte de Ventas</h2>
+        <div class="report-card-actions">
+          <button class="btn-icon" title="Descargar PDF">
+            <ion-icon name="download-outline"></ion-icon>
+          </button>
+          <button class="btn-icon" title="Imprimir">
+            <ion-icon name="print-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+      <div class="chart-area">
+        <div class="chart-empty">
+          <ion-icon name="analytics-outline"></ion-icon>
+          <p>Gráfico de ventas</p>
+          <small>Los datos se mostrarán al conectar el backend</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inventory Report -->
+    <div class="report-card">
+      <div class="report-card-header">
+        <h2>Reporte de Inventario</h2>
+        <button class="btn-icon" title="Descargar">
+          <ion-icon name="download-outline"></ion-icon>
+        </button>
+      </div>
+      <div class="report-list">
+        <div class="report-list-item">
+          <span class="report-label">Productos en stock</span>
+          <span class="report-value">--</span>
+        </div>
+        <div class="report-list-item">
+          <span class="report-label">Stock bajo</span>
+          <span class="report-value warning">--</span>
+        </div>
+        <div class="report-list-item">
+          <span class="report-label">Sin stock</span>
+          <span class="report-value danger">--</span>
+        </div>
+        <div class="report-list-item">
+          <span class="report-label">Valor total inventario</span>
+          <span class="report-value">$--,---</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Financial Report -->
+    <div class="report-card">
+      <div class="report-card-header">
+        <h2>Reporte Financiero</h2>
+        <button class="btn-icon" title="Descargar">
+          <ion-icon name="download-outline"></ion-icon>
+        </button>
+      </div>
+      <div class="report-list">
+        <div class="report-list-item">
+          <span class="report-label">Ingresos brutos</span>
+          <span class="report-value">$--,---</span>
+        </div>
+        <div class="report-list-item">
+          <span class="report-label">Gastos operativos</span>
+          <span class="report-value danger">$--,---</span>
+        </div>
+        <div class="report-list-item">
+          <span class="report-label">Ganancia neta</span>
+          <span class="report-value success">$--,---</span>
+        </div>
+        <div class="report-list-item">
+          <span class="report-label">Margen de ganancia</span>
+          <span class="report-value">--%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Reports -->
+  <div class="recent-reports-card">
+    <div class="recent-reports-header">
+      <h2>Reportes Generados</h2>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre del Reporte</th>
+          <th>Tipo</th>
+          <th>Periodo</th>
+          <th>Fecha de Generación</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="empty-state">
+          <td colspan="5">
+            <div class="empty-content">
+              <ion-icon name="document-text-outline"></ion-icon>
+              <h3>Sin reportes generados</h3>
+              <p>Genera tu primer reporte para verlo aquí</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

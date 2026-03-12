@@ -1,0 +1,113 @@
+<div class="customers">
+  <!-- Header -->
+  <div class="customers-header">
+    <h1>Clientes</h1>
+    <button class="btn-add">
+      <ion-icon name="add-outline"></ion-icon>
+      <span>Nuevo Cliente</span>
+    </button>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="customers-stats">
+    <div class="stat-card">
+      <div class="stat-icon primary">
+        <ion-icon name="people-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Total Clientes</h3>
+        <h2>--</h2>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon success">
+        <ion-icon name="person-add-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Nuevos Este Mes</h3>
+        <h2>--</h2>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon danger">
+        <ion-icon name="trending-up-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Clientes Activos</h3>
+        <h2>--</h2>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon warning">
+        <ion-icon name="star-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>Clientes Frecuentes</h3>
+        <h2>--</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filters & Search -->
+  <div class="customers-toolbar">
+    <div class="search-box">
+      <ion-icon name="search-outline"></ion-icon>
+      <input type="text" placeholder="Buscar cliente...">
+    </div>
+    <div class="filter-group">
+      <button class="filter-btn active">
+        <ion-icon name="grid-outline"></ion-icon>
+        Todos
+      </button>
+      <button class="filter-btn">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        Activos
+      </button>
+      <button class="filter-btn">
+        <ion-icon name="close-circle-outline"></ion-icon>
+        Inactivos
+      </button>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="customers-table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Ubicación</th>
+          <th>Total Pedidos</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="empty-state">
+          <td colspan="7">
+            <div class="empty-content">
+              <ion-icon name="people-outline"></ion-icon>
+              <h3>Sin clientes registrados</h3>
+              <p>Los clientes aparecerán aquí una vez conectados al sistema</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="table-footer">
+      <span class="table-info">Mostrando 0 de 0 clientes</span>
+      <div class="pagination">
+        <button class="page-btn" disabled>
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn" disabled>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
